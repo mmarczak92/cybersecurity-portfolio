@@ -17,6 +17,18 @@ I'm an IT professional transitioning into cybersecurity, building practical skil
 - Cloud Security
 - Python Automation
 
+## 🛠️ Technologies & Tools
+
+- Wireshark
+- Linux
+- Python
+- Active Directory
+- Burp Suite
+- Metasploit
+- Docker
+- Kubernetes
+- AWS
+
 ## 📂 Projects
 
 Projects will be added as I complete each stage of my cybersecurity training.
