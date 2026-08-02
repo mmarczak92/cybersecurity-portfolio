@@ -49,6 +49,7 @@ W części repozytoriów kodu źródłowego znajdowały się:
 - dane uwierzytelniające zapisane jawnym tekstem (plaintext)
 - certyfikaty cyfrowe, używane w środowiskach deweloperskich
 - zaszyfrowane dane uwierzytelniające wykorzystywane w środowisku produkcyjnym, między innymi do wykonania kopii zapasowych
+
 Do wykorzystania zaszyfrowanych danych wymagany był oddzielny klucz deszyfrujący, który podczas pierwszego incydentu nie był dostępny ani dla zaatakowanego inżyniera, ani dla atakującego.
 
 Incydent 2:
