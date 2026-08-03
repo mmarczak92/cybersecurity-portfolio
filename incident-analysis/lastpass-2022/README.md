@@ -73,17 +73,49 @@ Incydent 1 i 2:
       Nie. Raport nie wskazuje na zakłócenie działania usług ani utratę dostępności systemów.
 
 ## 7. Cyber Kill Chain
-   - Reconnaissance
-   - Weaponization
-   - Delivery
-   - Exploitation
-   - Installation
-   - Command & Control
-   - Actions on Objectives
+ Incydent 1:
+   - Reconnaissance - Brak danych.
+   - Weaponization - Brak danych.
+   - Delivery - Brak danych.
+   - Exploitation - Brak danych.
+   - Installation - Brak danych.
+   - Command & Control - Uzyskanie oraz utrzymanie dostępu do środowiska deweloperskiego z wykorzystaniem przejętego konta dewelopera, ukrywanie aktywności z użyciem zewnętrznego VPN oraz manipulacja agentem EDR w celu uniknięcia detekcji.
+   - Actions on Objectives - Pozyskanie i eksfiltracja dokumentacji technicznej oraz fragmentów repozytoriów kodu źródłowego LastPass'a.
+     
+ Incydent 2:
+   - Reconnaissance - Na podstawie informacji zdobytych podczas pierwszego incydentu oraz danych, które wyciekły z firmy trzeciej zidentyfikowano jednego z czterech inżynierów, posiadających dostęp do zasobów, niezbędnych do uzyskania dostępu do kopii zapasowych środowiska produkcyjnego.
+   - Weaponization - Brak danych.
+   - Delivery - Skierowanie ataku na prywatny komputer inżyniera oraz wykorzystanie podatności w oprogramowaniu multimedialnym firmy trzeciej.
+   - Exploitation - Wykorzystanie podatności umożliwiającej zdalne wykonanie kodu (RCE).
+   - Installation - Instalacja keylogger'a.
+   - Command & Control - Uzyskanie dostępu do firmowego sejfu LastPass'a poprzez przechwycone Hasło Główne (Master Password) oraz utrzymanie możliwości wykonywania dalszych działań z wykorzystaniem przejętych poświadczeń.
+   - Actions on Objectives - Wyeksportowanie zawartości firmowego sejfu i folderów współdzielonych, pozyskanie kluczy dostępu AWS oraz kluczy deszyfrujących, uzyskanie dostępu do kopii zapasowych środowiska produkcyjnego oraz eksfiltracja danych.
 
 ## 8. Co poszło nie tak po stronie obrońców?
-
+ - Nie wykryto początkowego wektora ataku (Incydent 1)
+ - Monitoring nie wykryły anomalii odpowiednio wcześniej (Incydent 1)
+ - W repozytoriach znajdowały się dane uwierzytelniające zapisane "jawnym tekstem"
+ - Inżynier posiadał dostęp do kluczy deszyfrujących z prywatnego urządzenia (Incydent 2)
+   
 ## 9. Gdzie można było przerwać incydent?
+Incydent 1:
+Po uzyskaniu dostępu do laptopa inżyniera – skuteczniejsza detekcja kompromitacji stacji roboczej. 
+Podczas manipulacji agentem EDR – wykrycie prób wyłączenia lub obejścia mechanizmów bezpieczeństwa. 
+Podczas logowania do środowiska deweloperskiego – wykrycie nietypowego źródła połączenia (VPN strony trzeciej), analizy behawioralne, Impossible Travel, Device Trust. 
+Przed eksfiltracją repozytoriów – DLP, monitoring dużych transferów danych.
+
+Incydent 2:
+Na etapie wyboru celu – ograniczenie informacji dostępnych po pierwszym incydencie i z wycieków stron trzecich. 
+Na komputerze inżyniera – załatanie podatnego programu multimedialnego. 
+Po wykonaniu RCE – EDR/XDR powinien wykryć uruchomienie złośliwego kodu. 
+Po instalacji keylogger'a – detekcja malware. 
+Podczas użycia Master Password – wykrycie nietypowego dostępu do Corporate Vault. 
+Podczas eksportu sejfu – alert na eksport danych. 
+Podczas dostępu do AWS S3 – GuardDuty ostatecznie zadziałał, jednak za późno.
 
 ## 10. Trzy rekomendacje bezpieczeństwa
+1. Ograniczenie wykonywania zadań oraz dostępu do krytycznych zasobów z prywatnych urządzeń.
+2. Wzmocnienie monitorowania stacji roboczych uprzywilejowanych użytkowników poprzez odporne na manipulację rozwiązania EDR
+3. Zaprzestanie umieszczania danych uwierzytelniających zapisanych "jawnym tekstem"
+
 ****
