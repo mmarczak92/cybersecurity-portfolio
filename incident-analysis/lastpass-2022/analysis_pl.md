@@ -1,4 +1,5 @@
-****# LastPass 2022 Incident Analysis
+****
+# Analiza Incydentu LastPass 2022
 
 ## Źródła
 1. Raport z Incydentu | https://blog.lastpass.com/posts/security-incident-update-recommended-actions
