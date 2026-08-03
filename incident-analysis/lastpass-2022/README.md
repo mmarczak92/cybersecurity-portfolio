@@ -41,6 +41,13 @@ Dostępne informacje nie pozwalają jednak jednoznacznie przypisać sprawcy do �
 
 ## 4. Wektor wejścia
 
+Incydent 1:
+Brak danych. Raport nie ujawnia początkowego wektora wejścia. 
+Potwierdzono jedynie, że atakujący uzyskał dostęp do środowiska deweloperskiego z wykorzystaniem konta dewelopera.
+
+Incydent 2:
+Wektorem wejścia było wykorzystanie podatności w oprogramowaniu multimedialnym firmy trzeciej zainstalowanym na prywatnym komputerze jednego z czterech inżynierów DevOps, co umożliwiło zdalne wykonanie kodu (RCE).
+
 ## 5. Cel działania
 
 Incydent 1:
@@ -53,12 +60,17 @@ W części repozytoriów kodu źródłowego znajdowały się:
 Do wykorzystania zaszyfrowanych danych wymagany był oddzielny klucz deszyfrujący, który podczas pierwszego incydentu nie był dostępny ani dla zaatakowanego inżyniera, ani dla atakującego.
 
 Incydent 2:
-Dostęp do i eksfiltracja kopii zapasowych środowiska produkcyjnego, innych zasobów przechowywanych w chmurze oraz powiązanych z nimi kopii zapasowych krytycznych baz danych poprzez przechwycenie Hasła Głównego (Master Password) oraz wyeksportowanie zawartości firmowego sejfu LastPass i folderów współdzielonych, zawierających bezpieczne notatki (secure notes) z kluczami dostępu AWS oraz kluczami deszyfrującymi. Klucze te były niezbędne do uzyskania dostępu do kopii zapasowych środowiska produkcyjnego LastPass przechowywanych w usłudze AWS S3.
+Dostęp do i eksfiltracja kopii zapasowych środowiska produkcyjnego, innych zasobów przechowywanych w chmurze oraz powiązanych z nimi kopii zapasowych krytycznych baz danych poprzez przechwycenie Hasła Głównego (Master Password) oraz wyeksportowanie zawartości firmowego sejfu LastPass'a i folderów współdzielonych, zawierających bezpieczne notatki (secure notes) z kluczami dostępu AWS oraz kluczami deszyfrującymi. Klucze te były niezbędne do uzyskania dostępu do kopii zapasowych środowiska produkcyjnego LastPass'a przechowywanych w usłudze AWS S3.
 
 ## 6. Naruszone elementy CIA
+   
+Incydent 1 i 2:
    - Poufność
+     Tak. Nieuprawniony dostęp oraz eksfiltracja dokumentacji technicznej, repozytoriów kodu źródłowego, kopii zapasowych i innych poufnych danych.
    - Integralność
+      Nie. Raport nie wskazuje, aby dane lub systemy zostały zmodyfikowane bądź uszkodzone.
    - Dostępność
+      Nie. Raport nie wskazuje na zakłócenie działania usług ani utratę dostępności systemów.
 
 ## 7. Cyber Kill Chain
    - Reconnaissance
