@@ -35,7 +35,7 @@ Na podstawie poniższych informacji:
 - prowadzenie rekonesansu, enumeracji i eksfiltracji danych,
 - wieloetapowy charakter operacji,
 
-możliwe scenariusze obejmują zaawansowaną działalność cyberprzestępczą, szpiegostwo korporacyjne lub działania grupy APT.
+możliwe scenariusze obejmują zaawansowaną działalność cyberprzestępczą, szpiegostwo korporacyjne lub działania APT.
 
 Dostępne informacje nie pozwalają jednak jednoznacznie przypisać sprawcy do żadnej z rozważanych kategorii ani wykluczyć pozostałych.
 
@@ -93,9 +93,9 @@ Incydent 1 i 2:
 
 ## 8. Co poszło nie tak po stronie obrońców?
  - Nie wykryto początkowego wektora ataku (Incydent 1)
- - Monitoring nie wykryły anomalii odpowiednio wcześniej (Incydent 1)
+ - Monitoring i alerting nie wykryły anomalii odpowiednio wcześniej (Incydent 1)
  - W repozytoriach znajdowały się dane uwierzytelniające zapisane "jawnym tekstem"
- - Inżynier posiadał dostęp do kluczy deszyfrujących z prywatnego urządzenia (Incydent 2)
+ - Inżynier posiadał dostęp do kluczy deszyfrujących z prywatnego urządzenia wykorzystywanego do pracy zdalnej (Incydent 2)
    
 ## 9. Gdzie można było przerwać incydent?
 Incydent 1:
@@ -116,6 +116,6 @@ Podczas dostępu do AWS S3 – GuardDuty ostatecznie zadziałał, jednak za pó�
 ## 10. Trzy rekomendacje bezpieczeństwa
 1. Ograniczenie wykonywania zadań oraz dostępu do krytycznych zasobów z prywatnych urządzeń.
 2. Wzmocnienie monitorowania stacji roboczych uprzywilejowanych użytkowników poprzez odporne na manipulację rozwiązania EDR
-3. Zaprzestanie umieszczania danych uwierzytelniających zapisanych "jawnym tekstem"
+3. Zaprzestanie przechowywania danych uwierzytelniających w postaci jawnego tekstu (plaintext) w repozytoriach kodu źródłowego.
 
 ****
